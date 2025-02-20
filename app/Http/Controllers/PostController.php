@@ -7,14 +7,12 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    // Afficher les posts d'un utilisateur
     public function showUserPosts($userId)
     {
         // Récupérer tous les posts de l'utilisateur par son ID
         $posts = Post::where('user_id', $userId)->get();
 
-        // Passer les posts à la vue
+        // Passer la variable $posts à la vue avec compact
         return view('posts', compact('posts'));
     }
 }
-
