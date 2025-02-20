@@ -7,4 +7,8 @@ use Illuminate\Support\Facades\Route;
 // });
 use App\Http\Controllers\PostController;
 
-Route::get('/user/{userId}/posts', [PostController::class, 'showUserPosts'])->name('posts');
+// Route pour afficher les posts d'un utilisateur spécifique
+Route::get('/user/{userId}/posts', [PostController::class, 'showUserPosts'])->name('posts.user');
+
+// Routes CRUD pour les posts (index, create, store, show, edit, update, destroy)
+Route::resource('posts', PostController::class);
